@@ -14,9 +14,16 @@ async def process2():
 
 async def main():
     
-    task = await asyncio.gather(process1(),process2())
-    # await (process1())
-    # await (process2())
+    task = await asyncio.gather(process1(),process2())  
+    # asyncio.gather runs process1() AND process2() CONCURRENTLY (at same time)
+    # It waits until BOTH are finished
+    # Timeline:
+    #   - process1 first step
+    #   - process2 first step
+    #   - both sleep 3 seconds together
+    #   - both print second step
+    #   - then main continues
+  
     print("main Completed")
 
 

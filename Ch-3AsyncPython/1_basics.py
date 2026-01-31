@@ -1,10 +1,10 @@
 import asyncio 
 import time 
 
-async def process1():
+async def process1(): # async means this function returns a coroutine and can be awaited by the event loop
     print("process-1First Step")
     asyncio.sleep(6)
-    result = await process2()
+    result = await process2() #await is needed to pause without blocking resources so process 2 can start process 2 first step 
     print("process-1 Second step")
     print(f"process2 result {result}")
     
